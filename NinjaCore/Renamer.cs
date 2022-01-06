@@ -66,20 +66,27 @@ namespace NinjaCore
         {
             var oldText = "";
             var newString = "";
+            bool editFile = false;
             using (var streamR = new StreamReader(file))
             {
 
                 oldText = streamR.ReadToEnd();
-                newString = oldText;
+                //newString = oldText;
                 if (oldText.Contains(currentOldKey))
-                    newString = oldText.Replace(currentOldKey, currentNewKey);
-            }
-            using (var streamW = new StreamWriter(file))
-            {
-                if (!newString.Equals(oldText))
                 {
-                    streamW.Write(newString);
-                    incidents += 1;
+                    newString = oldText.Replace(currentOldKey, currentNewKey);
+                    editFile = true;
+                }
+            }
+            if (editFile)
+            {
+                using (var streamW = new StreamWriter(file))
+                {
+                    if (!newString.Equals(oldText))
+                    {
+                        streamW.Write(newString);
+                        incidents += 1;
+                    }
                 }
             }
         }

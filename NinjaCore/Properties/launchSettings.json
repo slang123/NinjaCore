@@ -1,11 +1,11 @@
 {
   "profiles": {
     "NinjaCore": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "-path \"C:\\Users\\TummasJoensen\\source\\repos\\Bankasamskifti\\app.json\" -startRange 57454 -endRange 57504"
     },
     "WSL 2": {
       "commandName": "WSL2",
-      "environmentVariables": {},
       "distributionName": ""
     }
   }
